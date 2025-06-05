@@ -1,8 +1,5 @@
 package com.omohsine.project1.exceptions;
 
-/*
-authorotmani 
-    */
 
 import lombok.Data;
 import org.springframework.http.HttpStatus;
