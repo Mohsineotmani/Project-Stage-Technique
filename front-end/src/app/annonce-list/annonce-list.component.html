@@ -1,0 +1,34 @@
+<div class="container">
+  <h3>Liste des Annonces</h3>
+  <button (click)="goToAddAnnonce()" class="btn-add">
+    <i class="fas fa-plus"></i> Ajouter une Annonce
+  </button>
+  <div class="card-container">
+    <div class="card" *ngFor="let annonce of annonces">
+      <div class="card-header">
+        <div class="card-image">
+          <img  [src]="getImageForAnnonce(annonce)" alt="{{ annonce.title }}"/>
+        </div>
+        <div class="card-title-content">
+          <h4>{{ annonce.title }}</h4>
+          <ul>
+            <li><strong>ID:</strong> {{ annonce.id }}</li>
+            <li><strong>Visibilité:</strong> {{ annonce.visibility }}</li>
+            <li><strong>Type:</strong> {{ annonce.type }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-footer gap-1">
+        <button *ngIf="annonce.id !== undefined" (click)="goToEditAnnonce(annonce.id!)" class="btn edit">
+          <i class="fas fa-edit"></i> Modifier
+        </button>
+        <button *ngIf="annonce.id !== undefined" (click)="deleteAnnonce(annonce.id!)" class="btn delete">
+          <i class="fas fa-trash"></i> Supprimer
+        </button>
+        <button *ngIf="annonce.visibility !== 'Publique' && annonce.id !== undefined" (click)="publishAnnonce(annonce.id!)" class="btn publish">
+          <i class="fas fa-rocket"></i> Publier
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

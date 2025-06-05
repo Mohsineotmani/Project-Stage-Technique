@@ -1,0 +1,95 @@
+.dashboard {
+  display: flex;
+  gap: 20px; /* Espacement entre les cartes */
+  justify-content: flex-start; /* Aligner les cartes à gauche */
+  align-items: stretch; /* S'assurer que toutes les cartes ont la même hauteur */
+  padding: 10px; /* Espacement interne pour une meilleure mise en page */
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+}
+
+.stat-card {
+  background-color: #f9f9f9; 
+  border-radius: 10px; 
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  width: 250px; /* Largeur uniforme pour toutes les cartes */
+  min-height: 130px; /* Hauteur minimale identique */
+  display: flex; /* Pour aligner le contenu à l'intérieur */
+  flex-direction: column; /* Organisation verticale du contenu */
+  justify-content: space-between; /* Espacer le contenu verticalement */
+}
+
+  
+  .icon-and-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .icon-and-title i {
+    color: #ffa500;
+    font-size: 24px;
+  }
+  
+  .icon-and-title h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+  }
+  
+  .stat-card .stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #28a745;
+    margin: 10px 0;
+  }
+  
+  .stat-card hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+  }
+  
+  .stat-card .stat-detail {
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .stat-card .stat-detail i {
+    color: #777;
+  }
+  .stat-card .stat-percentage {
+    font-size: 20px; /* Taille de la police */
+    font-weight: bold; /* Gras pour mettre en évidence */
+    color: #007bff; /* Couleur bleue (ou ajustez selon votre thème) */
+    margin-top: 10px; /* Espacement avec le trait */
+    animation: fadeIn 1s ease-in-out; /* Animation subtile pour l'apparition */
+  }
+  
+  /* Animation d'apparition */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  
+  canvas {
+    display: block;
+    margin: 0 auto;
+    max-width: 300px;
+    height: auto; 
+  }
+

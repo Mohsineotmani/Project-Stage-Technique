@@ -1,0 +1,170 @@
+// Variables
+$primary-color: #007bff;
+$secondary-color: #555;
+$background-color: #fff;
+$border-color: #ddd;
+$text-color: #333;
+$hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+$normal-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+$font-family: 'Arial, sans-serif';
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: $font-family;
+
+  h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4A90E2;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Montserrat';
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+
+  }
+
+
+  .empty-annonce{
+    height: 100px;
+  }
+
+  .card-container {
+    display: flex;
+    flex-direction: column; // Les cartes sont en colonne
+    gap: 20px;
+    justify-content: center;
+    align-items: center; // Centre les cartes horizontalement
+
+    .card {
+      background-color: $background-color;
+      overflow: hidden;
+      width: 1000px; // Augmente légèrement la taille des cartes
+      display: flex;
+      flex-direction: column;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: $hover-shadow;
+      }
+
+      .card-header {
+        display: flex;
+        padding: 15px;
+        justify-content: flex-start;
+
+        .card-image {
+          width: 200px; // Augmente la taille de l'image
+          height: 200px;
+          overflow: hidden;
+          margin-right: 15px;
+          border-radius: 5px;
+
+          img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+          }
+        }
+
+        .card-content {
+          flex: 1;
+
+          h4 {
+            font-size: 1.4em; // Augmente la taille du titre
+            margin: 0;
+            color: $primary-color;
+          }
+
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0;
+
+            li {
+              font-size: 1em; // Augmente la taille du texte
+              color: $secondary-color;
+
+              strong {
+                color: $text-color;
+              }
+            }
+          }
+
+          p {
+            font-size: 1em; // Augmente la taille du texte
+            color: lighten($secondary-color, 10%);
+            line-height: 1.5;
+            white-space: normal;
+            word-wrap: break-word;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  // Responsive Design pour les écrans plus larges
+  @media (max-width: 768px) {
+    .card-container {
+      flex-direction: column;
+      align-items: center; // Maintient le centrage des cartes sur les petits écrans
+    }
+
+    .card-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .card-image {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+
+
+/////
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 5px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination span.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.pagination span:hover:not(.active) {
+  background-color: #ddd;
+}

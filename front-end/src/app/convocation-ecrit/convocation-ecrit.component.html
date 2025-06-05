@@ -1,0 +1,97 @@
+<div class="empty-div">
+
+</div>
+
+<div class="container">
+
+  <h1>Bonjour {{ candidat.nom }} {{ candidat.prenom }}</h1>
+<!--  <div>
+    <p> isPublishedPreSelections : {{ isPublishedPreSelections }} ,</p>
+    <p>isEligiblePreSelections : {{ isEligiblePreSelections }},</p>
+    <p>isEcritPublished : {{ isEcritPublished }},</p>
+    <p>isEcritEligible : {{ isEcritEligible }},</p>
+
+  </div>-->
+  <!-- Vérifier si les résultats sont publiés -->
+  <ng-container *ngIf="isPublishedPreSelections; else waitingForPublish">
+
+    <div *ngIf="!isEcritPublished && !isFinalPublished">
+      <div class="info-section">
+        <p><strong>Votre Moyenne :</strong> <span class="moyenne">{{ moyennePreSelections }}</span></p>
+        <p><strong>Le Seuil Actuel :</strong> <span class="seuil">{{ seuil }}</span></p>
+      </div>
+
+      <!-- Message pour les candidats convoqués -->
+      <div *ngIf="isEligiblePreSelections">
+        <h2 class="eligible">
+          Félicitations {{ candidat.nom }} {{ candidat.prenom }}, vous êtes convoqué(e) pour le concours passerelle pour
+          la filière {{ candidat.filiereChoisi }} !
+        </h2>
+        <!-- Boutons pour les candidats convoqués -->
+        <div class="button-section">
+          <button (click)="generateConvocation(candidat)">
+            Télécharger votre convocation
+          </button>
+        </div>
+      </div>
+
+      <!-- Message pour les candidats non convoqués -->
+      <div class="not-eligible" *ngIf="!isEligiblePreSelections">
+        <p>
+          Nous regrettons de vous informer que vous n'êtes pas convoqué(é) pour passer cette étape.
+        </p>
+        <p>
+          Nous vous encourageons à continuer vos efforts et à tenter votre chance lors des prochaines opportunités.
+        </p>
+        <p>
+          Pour toute question ou information supplémentaire, n'hésitez pas à nous <a
+          href="mailto:otmanimohsine@gmail.com"> contacter</a>.
+        </p>
+      </div>
+    </div>
+
+    <div *ngIf="isEcritPublished && !isFinalPublished">
+      <div class="not-eligible" *ngIf="!isEcritEligible">
+        <p>
+          Vous etes pas séléctionné(e) pour passer l'entretien Orale
+        </p>
+      </div>
+
+      <!-- Message et bouton pour les résultats écrits publiés -->
+      <div *ngIf="isEcritEligible" class="oral-section">
+        <h2 class="eligible">
+          Félicitations {{ candidat.nom }} {{ candidat.prenom }}, vous êtes convoqué(e) pour Passer le Concours Orale
+          pour
+          la filière {{ candidat.filiereChoisi }} !
+        </h2>
+        <button (click)="generateConvocationOrale(candidat)">
+          Télécharger votre convocation pour le Concours Oral
+        </button>
+      </div>
+
+    </div>
+
+    <div *ngIf="isFinalPublished">
+      <div class="not-eligible" *ngIf="!isFinalEligible">
+        Vous etes pas séléctionné(e)
+      </div>
+      <div *ngIf="isFinalEligible" class="oral-section">
+
+      </div>
+    </div>
+
+
+  </ng-container>
+
+  <!-- Message d'attente pour les candidats si les résultats ne sont pas publiés -->
+  <ng-template #waitingForPublish>
+    <p class="not-published">
+      Les résultats ne sont pas encore publiés. Veuillez patienter jusqu'à ce que l'administrateur les publie.
+    </p>
+  </ng-template>
+
+  <!-- Message d'erreur si les résultats n'ont pas pu être vérifiés -->
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+</div>

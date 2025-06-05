@@ -1,0 +1,73 @@
+<h1 class="hello">Welcome to ESMA World</h1>
+<div class="signup-card">
+  <!-- Success message -->
+  <div *ngIf="showSuccess" class="alert alert-success">
+    Account  was Created successfully.
+  </div>
+
+  <div class="card-title">
+    <h1>Create Account</h1>
+    <span>Already have an account? <a routerLink="/login">Sign In</a></span>
+  </div>
+
+  <form class="form-group" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+    <div class="error-message" *ngIf="validationErrors?.message">
+      ⚠️ : {{ validationErrors.message }}
+    </div>
+
+    <input type="text" name="firstName" placeholder="First Name" formControlName="firstName">
+
+    <div class="text-danger">
+      <ng-container *ngIf="signupForm.controls['firstName'].touched && signupForm.controls['firstName'].errors?.['required']; else firstNameBackend">
+        <span class="error">📝 : Le prénom est requis</span>
+      </ng-container>
+      <ng-template #firstNameBackend>
+        <div class="error" *ngIf="validationErrors.firstName">📝 : {{ validationErrors.firstName }}</div>
+      </ng-template>
+    </div>
+
+    <input type="text" name="lastName" placeholder="Last Name" formControlName="lastName">
+
+    <div class="text-danger">
+      <!-- Last Name -->
+      <ng-container *ngIf="signupForm.controls['lastName'].touched && signupForm.controls['lastName'].errors?.['required']; else lastNameBackend">
+        <span class="error">📝 : Le nom est requis</span>
+      </ng-container>
+      <ng-template #lastNameBackend>
+        <div class="error" *ngIf="validationErrors.lastName">📝 : {{ validationErrors.lastName }}</div>
+      </ng-template>
+    </div>
+
+    <input type="email" name="email" placeholder="Email" formControlName="email">
+
+    <div class="text-danger">
+      <ng-container *ngIf="signupForm.controls['email'].touched && signupForm.controls['email'].errors?.['required']; else emailBackend">
+        <span class="error">📧 : L'email est requis</span>
+      </ng-container>
+      <ng-template #emailBackend>
+        <div class="error" *ngIf="validationErrors.email">📧 : {{ validationErrors.email }}</div>
+      </ng-template>
+    </div>
+
+    <input type="password" name="password" placeholder="Password" formControlName="password">
+
+    <div class="text-danger">
+      <!-- Password -->
+      <ng-container *ngIf="signupForm.controls['password'].touched && signupForm.controls['password'].errors?.['required']; else passwordBackend">
+        <span class="error">🔒 : Le mot de passe est requis</span>
+      </ng-container>
+      <ng-template #passwordBackend>
+        <div class="error" *ngIf="validationErrors.password">🔒 : {{ validationErrors.password }}</div>
+      </ng-template>
+    </div>
+
+    <input type="submit" [disabled]="!signupForm.valid" value="Signup">
+  </form>
+
+  <div class="card-terms">
+    <input type="checkbox">
+    <span>I have read and agree to the <a href="">Terms of Service</a></span>
+  </div>
+
+</div>

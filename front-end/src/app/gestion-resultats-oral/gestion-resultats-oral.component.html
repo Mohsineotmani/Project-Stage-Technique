@@ -1,0 +1,49 @@
+<div class="container">
+    <!-- Section des filtres -->
+    <div class="filter-section">
+        <div class="filter-select">
+            <label for="filiere">Filtrer par filière :</label>
+            <select id="filiere" [(ngModel)]="selectedFiliere" (change)="filterResults()">
+                <option *ngFor="let filiere of filieres" [value]="filiere">{{ filiere }}</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Table des résultats -->
+    <table class="results-table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Filière</th>
+                <th>Note</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let result of filteredResults">
+                <td>{{ result.nom }}</td>
+                <td>{{ result.filiere }}</td>
+                <td>{{ result.note }}</td>
+
+
+
+
+                <td class="action-buttons">
+                    <ng-container *ngIf="editingResult?.id === result.id; else viewMode">
+                        <button class="btn save" (click)="saveEdit()">
+                            <i class="fas fa-save"></i>
+                        </button>
+                        <button class="btn cancel" (click)="cancelEdit()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </ng-container>
+                    <ng-template #viewMode>
+                        <button class="btn edit" (click)="editResult(result)">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </ng-template>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

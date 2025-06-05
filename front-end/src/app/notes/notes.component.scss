@@ -1,0 +1,326 @@
+.notes-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+
+  h2 {
+    text-align: center;
+    color: #0961f5;
+    margin-bottom: 20px;
+  }
+
+  .filter-bar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+
+    label {
+      font-size: 16px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      color: #333;
+      transition: border 0.3s ease;
+
+      &:hover {
+        border-color: #0961f5;
+      }
+
+      &:focus {
+        border-color: #074db3;
+        outline: none;
+        box-shadow: 0 0 5px rgba(9, 97, 245, 0.5);
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s ease, transform 0.2s ease;
+
+      &.primary {
+        background: #0961f5;
+        color: white;
+
+        &:hover {
+          background: #074db3;
+          transform: translateY(-2px);
+        }
+      }
+
+      &.secondary {
+        background: #f44336;
+        color: white;
+
+        &:hover {
+          background: #d32f2f;
+          transform: translateY(-2px);
+        }
+      }
+
+      &.success {
+        background-color: #28a745;
+        color: white;
+
+        &:hover {
+          background: #218838;
+          transform: translateY(-2px);
+        }
+      }
+
+      &.publish {
+        background-color: #ff9800;
+        color: white;
+
+        &:hover {
+          background-color: #e68900;
+          transform: translateY(-2px);
+        }
+      }
+
+      &.pdf {
+        background-color: #e74c3c;
+        color: white;
+
+        &:hover {
+          background: #c0392b;
+          transform: translateY(-2px);
+        }
+      }
+
+      &.cancel {
+        background-color: #f44336;
+        color: white;
+
+        &:hover {
+          background: #d32f2f;
+          transform: translateY(-2px);
+        }
+      }
+
+      i {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    thead tr {
+      background: #5784BA;
+      color: white;
+    }
+
+    th, td {
+      padding: 10px 15px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    tbody tr {
+      &:hover {
+        background: #f1f1f1;
+      }
+    }
+
+    .btn {
+      padding: 5px 10px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+
+      i {
+        margin: 0;
+      }
+
+      &.edit {
+        background: #4caf50;
+        color: white;
+
+        &:hover {
+          background: #388e3c;
+          transform: translateY(-2px);
+        }
+      }
+
+      &.delete {
+        background: #f44336;
+        color: white;
+        margin-left: 10px;
+
+        &:hover {
+          background: #d32f2f;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+
+  .alert {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  .alert.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+  }
+
+  .alert.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+  }
+
+  .alert.info {
+    color: #004085;
+    background-color: #cce5ff;
+    border: 1px solid #b8daff;
+  }
+
+  .alert.warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+  }
+
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .filter-bar {
+      flex-direction: column;
+      align-items: flex-start;
+
+      select {
+        width: 100%;
+      }
+    }
+
+    .actions {
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+
+      .btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+      }
+    }
+
+    .styled-table {
+      font-size: 14px;
+
+      th, td {
+        padding: 8px 10px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .actions {
+      .btn {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      .filter-bar select {
+        font-size: 14px;
+      }
+
+      .styled-table {
+        font-size: 12px;
+
+        th, td {
+          padding: 6px 8px;
+        }
+      }
+
+      .alert {
+        font-size: 12px;
+      }
+    }
+  }
+
+  /* Ajouter un fond rouge pour les candidats dont la note est inférieure au seuil */
+  .below-threshold {
+    background-color: #f8d7da; /* Couleur de fond rouge pour les candidats sous le seuil */
+    color: #d32f2f; /* Couleur du texte */
+  }
+
+  /* Styles pour le filtre par seuil oral */
+  .seuil-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espace entre les éléments */
+  }
+
+  #seuilOralFilter {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: border 0.3s ease;
+
+    &:hover {
+      border-color: #0961f5; /* Couleur au survol */
+    }
+
+    &:focus {
+      border-color: #074db3; /* Couleur au focus */
+      outline: none;
+      box-shadow: 0 0 5px rgba(9, 97, 245, 0.5); /* Ombre au focus */
+    }
+  }
+
+  /* Styles pour le bouton Sauvegarder Seuil Oral */
+  .btn.save-seuil {
+    background-color: #28a745; /* Couleur verte */
+    color: white; /* Texte blanc */
+    padding: 10px 15px; /* Espacement interne */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition douce */
+
+    &:hover {
+      background-color: #218838; /* Couleur plus foncée au survol */
+    }
+  }
+}

@@ -1,0 +1,136 @@
+/* Conteneur principal */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  font-family: 'Roboto', sans-serif;
+  padding: 30px;
+  background: #ffffff;
+}
+
+/* Titre principal */
+.container h3 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* Groupe de formulaire pour la sélection de filière */
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-group label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form-group select {
+  width: 20%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group select:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 6px rgba(0, 86, 179, 0.5);
+}
+
+/* Bouton pour générer le PDF */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background-color: #0056b3;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #004494;
+  transform: translateY(-2px);
+}
+
+.btn i {
+  font-size: 18px;
+}
+
+/* Tableau des résultats */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: #0056b3;
+  color: white;
+}
+
+.table thead th {
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table tbody td {
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Message d'alerte pour aucun résultat trouvé */
+.alert {
+  margin-top: 30px;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #856404;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  text-align: center;
+}
+
+/* Alignement centré avec marge pour le bouton PDF */
+.text-center {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.text-center.mt-4 {
+  margin-top: 50px;
+}
+
+/* Ajout d'une transition fluide */
+.container,
+.table tbody tr {
+  transition: all 0.3s ease;
+}

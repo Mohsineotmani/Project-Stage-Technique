@@ -1,0 +1,130 @@
+<div class="candidate-details-container">
+    <h2>Détails du Candidat  "{{ candidate?.nom }} {{ candidate?.prenom }}"</h2>
+
+    <table class="candidate-details-table">
+        <!-- Section Données Personnelles -->
+        <tr class="section-header">
+            <td colspan="2">
+                <i class="fas fa-user" style="color: #555;"></i> Données Personnelles
+            </td>
+        </tr>
+        <tr>
+            <td><strong>N° d'Inscription </strong></td>
+            <td>{{ candidate?.idCandidat }}</td>
+        </tr>
+        <tr>
+            <td><strong>Nom </strong></td>
+            <td>{{ candidate?.nom }}</td>
+        </tr>
+        <tr>
+            <td><strong>Prénom </strong></td>
+            <td>{{ candidate?.prenom }}</td>
+        </tr>
+        <tr>
+            <td><strong>Date de Naissance </strong></td>
+            <td>{{ candidate?.dateNaissance }}</td>
+        </tr>
+        <tr>
+            <td><strong>CIN </strong></td>
+            <td>{{ candidate?.cin }}</td>
+        </tr>
+        <tr>
+            <td><strong>Code Étudiant </strong></td>
+            <td>{{ candidate?.codeEtudiant }}</td>
+        </tr>
+        <tr>
+            <td><strong>Email </strong></td>
+            <td>{{ candidate?.email }}</td>
+        </tr>
+        <tr>
+            <td><strong>Téléphone </strong></td>
+            <td>{{ candidate?.tel }}</td>
+        </tr>
+        <tr>
+            <td><strong>Filière Choisie </strong></td>
+            <td>{{ candidate?.filiereChoisi}}</td>
+        </tr>
+
+        <!-- Section Bac -->
+        <tr class="section-header">
+            <td colspan="2">
+                <i class="fas fa-graduation-cap" style="color: #555;"></i> Informations sur le Bac
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Série Bac </strong></td>
+            <td>{{ candidate?.serieBac }}</td>
+        </tr>
+        <tr>
+            <td><strong>Mention Bac </strong></td>
+            <td>{{ candidate?.mentionBac }}</td>
+        </tr>
+        <tr>
+            <td><strong>Copie Bac </strong></td>
+            <td>
+                <a [href]="getFilePath(candidate?.copieBac)" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Voir Copie Bac
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Relevé Bac </strong></td>
+            <td>
+                <a [href]="getFilePath(candidate?.releveBac)" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Voir Relevé Bac
+                </a>
+            </td>
+        </tr>
+
+        <!-- Section Diplôme -->
+        <tr class="section-header">
+            <td colspan="2">
+                <i class="fas fa-award" style="color: #555;"></i> Informations sur le Diplôme
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Titre du Diplôme </strong></td>
+            <td>{{ candidate?.titreDiplome }}</td>
+        </tr>
+        <tr>
+            <td><strong>Note Première Année </strong></td>
+            <td>{{ candidate?.notePremiereAnnee }}</td>
+        </tr>
+        <tr>
+            <td><strong>Note Deuxième Année </strong></td>
+            <td>{{ candidate?.noteDeuxiemeAnnee }}</td>
+        </tr>
+        <tr>
+            <td><strong>Etablissement </strong></td>
+            <td>{{ candidate?.etablissement }}</td>
+        </tr>
+        <tr>
+            <td><strong>Relevé Diplôme Année 1 </strong></td>
+            <td>
+                <a [href]="getFilePath(candidate?.releveDiplomeAnnee1)" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Voir Relevé de la Première Année
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Relevé Diplôme Année 2 </strong></td>
+            <td>
+                <a [href]="getFilePath(candidate?.releveDiplomeAnnee2)" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Voir Relevé de la Deuxième Année
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Copie Diplôme </strong></td>
+            <td>
+                <a [href]="getFilePath(candidate?.copieDiplome)" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Voir Copie du Diplôme
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <button class="btn back" (click)="goBack()">
+        <i class="fas fa-arrow-left"></i> Retour à la liste
+    </button>
+</div>

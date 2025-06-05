@@ -1,0 +1,68 @@
+<!--
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<div class="container">
+   <h3>Annonces Importantes</h3>
+
+   <div class="empty-annonce">
+
+   </div>
+
+   <div class="card-container">
+     <div class="card" *ngFor="let annonce of annonces; let i = index">
+       <div class="card-header">
+         <div class="card-image">
+            &lt;!&ndash; L'image est assignée selon l'index de l'annonce &ndash;&gt;
+&lt;!&ndash;            <img [src]="getImageForAnnonce(i)" alt="{{ annonce.title }}" class="card-image" /> &lt;!&ndash; Image par index &ndash;&gt;&ndash;&gt;
+           <img [src]="getImageForAnnonce(annonce)" alt="{{ annonce.title }}" class="card-image" />
+         </div>
+         <div class="card-content">
+           <h4>{{ annonce.title }}</h4>
+           <ul>
+             <li><strong>Type:</strong> {{ annonce.type}}</li>
+           </ul>
+           <p>{{ annonce.content }}</p>
+         </div>
+       </div>
+     </div>
+   </div>
+</div>
+-->
+
+<div class="container">
+  <h3>Annonces Importantes</h3>
+
+  <div class="empty-annonce"></div>
+
+  <div class="card-container">
+    <div class="card" *ngFor="let annonce of paginatedAnnonces">
+      <div class="card-header">
+        <div class="card-image">
+          <img  style="height: 200px" [src]="getImageForAnnonce(annonce)" alt="{{ annonce.title }}" class="card-image" />
+        </div>
+        <div class="card-content">
+          <h4>{{ annonce.title }}</h4>
+          <ul>
+            <li><strong>Type:</strong> {{ annonce.type }}</li>
+          </ul>
+          <p>{{ annonce.content }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination controls -->
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Précédent</button>
+
+    <span *ngFor="let page of getPagesArray()"
+          (click)="goToPage(page)"
+          [class.active]="page === currentPage">
+      {{ page }}
+    </span>
+
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Suivant</button>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="dashboard-container">
+
+
+  <div class="content">
+    <!-- Right Section: Profile -->
+    <div class="profile-card" *ngIf="!candidat">
+      chargement données ...
+    </div>
+    <div class="profile-card" *ngIf="candidat">
+      <div class="user-avatar">
+        <img src="assets/profil.jpg" alt="User Avatar"/>
+      </div>
+
+      <h2>{{ candidat?.prenom }} {{ candidat?.nom }}</h2>
+
+      <div class="contact">
+        <p class="description">Contact :</p>
+        <p>
+          <i class="fas fa-phone-alt"></i> <!-- Icône de téléphone -->
+          {{ candidat.tel }}
+        </p>
+        <p>
+          <i class="fas fa-envelope"></i> <!-- Icône d'email -->
+          {{ candidat.email }}
+        </p>
+      </div>
+
+
+      <button class="update-btn" (click)="navigateToEditProfile()">Modifier Profil</button>
+    </div>
+
+    <!-- Left Section: Info Details -->
+    <div class="info-details">
+      <h3>Données Personnelles</h3>
+      <p><strong>Prénom:</strong> {{ candidat.prenom }}</p>
+      <p><strong>Nom:</strong> {{ candidat.nom }}</p>
+      <p><strong>Date de Naissance:</strong> {{ candidat.dateNaissance | date:'dd/MM/yyyy' }}</p>
+      <p><strong>CIN:</strong> {{ candidat.cin }}</p>
+      <p><strong>Code Étudiant:</strong> {{ candidat.codeEtudiant }}</p>
+      <p><strong>Pays:</strong> {{ candidat.pays }}</p>
+      <p><strong>Ville:</strong> {{ candidat.ville }}</p>
+
+      <hr/>
+
+      <h3>Données du Bac</h3>
+      <p><strong>Série Bac:</strong> {{ candidat.serieBac }}</p>
+      <p><strong>Mention Bac:</strong> {{ candidat.mentionBac }}</p>
+
+      <hr/>
+
+      <h3>Données du Diplôme</h3>
+
+      <p><strong>Titre Diplôme:</strong> {{ candidat.titreDiplome }}</p>
+      <p><strong>Établissement:</strong> {{ candidat.etablissement }}</p>
+      <p><strong>Note Première Année:</strong> {{ candidat.notePremiereAnnee }}</p>
+      <p><strong>Note Deuxième Année:</strong> {{ candidat.noteDeuxiemeAnnee }}</p>
+      <p><strong>Filière Choisie:</strong> {{ candidat.filiereChoisi }}</p>
+
+    </div>
+  </div>
+</div>

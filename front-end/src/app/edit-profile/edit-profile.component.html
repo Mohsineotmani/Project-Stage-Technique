@@ -1,0 +1,143 @@
+<div class="dashboard-container">
+  <div class="content">
+    <!-- Formulaire de modification du profil -->
+    <div class="profile-edit-form">
+      <h2>Modifier le Profil</h2>
+      <form (ngSubmit)="onSubmit()" [formGroup]="profileForm" enctype="multipart/form-data">
+
+        <!-- Informations Personnelles -->
+        <section class="form-section">
+          <h3>Données Personnelles</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="prenom">Prénom:</label>
+              <input type="text" id="prenom" formControlName="prenom" required />
+            </div>
+            <div class="form-group">
+              <label for="nom">Nom:</label>
+              <input type="text" id="nom" formControlName="nom" required />
+            </div>
+            <div class="form-group">
+              <label for="cin">CIN:</label>
+              <input type="text" id="cin" formControlName="cin" required />
+            </div>
+            <div class="form-group">
+              <label for="dateNaissance">Date de Naissance:</label>
+              <input type="date" id="dateNaissance" formControlName="dateNaissance" required />
+            </div>
+            <div class="form-group">
+              <label for="tel">Téléphone:</label>
+              <input type="text" id="tel" formControlName="tel" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" formControlName="email" required />
+            </div>
+            <div class="form-group">
+              <label for="pays">Pays:</label>
+              <input type="text" id="pays" formControlName="pays" required />
+            </div>
+            <div class="form-group">
+              <label for="ville">Ville:</label>
+              <input type="text" id="ville" formControlName="ville" required />
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        <!-- Données du Bac -->
+        <section class="form-section">
+          <h3>Données du Bac</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="codeEtudiant">Code Étudiant:</label>
+              <input type="text" id="codeEtudiant" formControlName="codeEtudiant" required />
+            </div>
+            <div class="form-group">
+              <label for="filiereChoisi">Filière Choisie:</label>
+              <select id="filiereChoisi" formControlName="filiereChoisi" required>
+                <option value="Génie Informatique">Génie Informatique</option>
+                <option value="Gestion & Administration">Gestion & Administration</option>
+                <option value="Comptabilité & Finance">Comptabilité & Finance</option>
+                <option value="Génie RST">Génie RST</option>
+                <option value="Marketing & Vente">Marketing & Vente</option>
+                <option value="Réseaux & Télécommunications">Réseaux & Télécommunications</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="etablissement">Établissement:</label>
+              <select id="etablissement" formControlName="etablissement" required>
+                <option value="EST Sid Bennour">EST Sid Bennour</option>
+                <option value="EST Casablanca">EST Casablanca</option>
+                <option value="EST Fès">EST Fès</option>
+                <option value="EST Marrakech">EST Marrakech</option>
+                <option value="EST Rabat">EST Rabat</option>
+                <option value="EST Tanger">EST Tanger</option>
+                <option value="EST Oujda">EST Oujda</option>
+                <option value="EST Agadir">EST Agadir</option>
+                <option value="BTS Informatique - ISTA Rabat">BTS Informatique - ISTA Rabat</option>
+                <option value="BTS Comptabilité & Finance - ISTA Casablanca">BTS Comptabilité & Finance - ISTA Casablanca</option>
+                <option value="BTS Électronique - ISTA Fès">BTS Électronique - ISTA Fès</option>
+                <option value="BTS Marketing et Gestion - ISTA Rabat">BTS Marketing et Gestion - ISTA Rabat</option>
+                <option value="ISTA Casablanca">ISTA Casablanca</option>
+                <option value="ISTA Fès">ISTA Fès</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        <!-- Données du Diplôme -->
+        <section class="form-section">
+          <h3>Données du Diplôme</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="serieBac">Série Bac:</label>
+              <select id="serieBac" formControlName="serieBac" required>
+                <option value="SMA">Sciences Mathématiques A (SMA)</option>
+                <option value="SMB">Sciences Mathématiques B (SMB)</option>
+                <option value="PC">Sciences Physiques et Chimiques (PC)</option>
+                <option value="SVT">Sciences de la Vie et de la Terre (SVT)</option>
+                <option value="STE">Sciences et Technologies Électriques (STE)</option>
+                <option value="STM">Sciences et Technologies Mécaniques (STM)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="mentionBac">Mention Bac:</label>
+              <select id="mentionBac" formControlName="mentionBac" required>
+                <option value="Très Bien">Très Bien</option>
+                <option value="Bien">Bien</option>
+                <option value="Assez Bien">Assez Bien</option>
+                <option value="Passable">Passable</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="notePremiereAnnee">Note Première Année:</label>
+              <input type="number" step="0.01" id="notePremiereAnnee" formControlName="notePremiereAnnee" required />
+            </div>
+            <div class="form-group">
+              <label for="noteDeuxiemeAnnee">Note Deuxième Année:</label>
+              <input type="number" step="0.01" id="noteDeuxiemeAnnee" formControlName="noteDeuxiemeAnnee" required />
+            </div>
+
+            <!-- Diplôme Obtenu -->
+            <div class="form-group">
+              <label for="titreDiplome">Titre Diplôme:</label>
+              <select id="titreDiplome" formControlName="titreDiplome" required>
+                <option value="BTS">Brevet de Technicien Supérieur (BTS)</option>
+                <option value="DUT">Diplôme Universitaire de Technologie (DUT)</option>
+                <option value="DEUG">Diplôme d'Études Universitaires Générales (DEUG)</option>
+                <option value="TS">Diplôme de Technicien Spécialisé</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <button type="submit" class="save-btn">Enregistrer</button>
+      </form>
+    </div>
+  </div>
+</div>

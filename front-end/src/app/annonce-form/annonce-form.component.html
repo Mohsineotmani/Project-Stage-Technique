@@ -1,0 +1,34 @@
+<div class="container">
+  <h2>{{ isEditing ? 'Modifier une Annonce' : 'Ajouter une Annonce' }}</h2>
+  <form [formGroup]="annonceForm" (ngSubmit)="submitAnnonce()">
+    <div class="form-group">
+      <input formControlName="title" placeholder="Titre d'Annonce" required />
+    </div>
+    <div class="form-group radio-group">
+      <label>
+        <input type="radio" formControlName="visibility" value="Publique" />
+        Publique
+      </label>
+      <label>
+        <input type="radio" formControlName="visibility" value="Privé" />
+        Privé
+      </label>
+    </div>
+
+    <div class="form-group">
+      <select formControlName="type" required>
+        <option value="" disabled selected>Type</option>
+        <option value="Résultat">Résultat</option>
+        <option value="Info">Info</option>
+        <option value="Urgent">Urgent</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <textarea formControlName="content" placeholder="Ajouter un Contenu"></textarea>
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn primary">{{ isEditing ? 'Modifier' : 'Ajouter' }}</button>
+      <button type="button" class="btn secondary" (click)="cancel()">Annuler</button>
+    </div>
+  </form>
+</div>

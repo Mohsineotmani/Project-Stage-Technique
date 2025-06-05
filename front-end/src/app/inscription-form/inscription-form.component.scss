@@ -1,0 +1,267 @@
+.container {
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.file-placeholder{
+  color: #ca6863;
+}
+
+.form-container{
+  width: 100%;
+}
+.bar-container{
+  width: 85%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-bar-container {
+  width: 80%; /* S'assurer que la barre de progression a la même largeur que .form-container */
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px; /* Espacement entre la barre de progression et le formulaire */
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #0961f5;
+  border-radius: 5px;
+  transition: width 0.3s ease; /* Transition fluide lors du changement de largeur */
+}
+
+
+
+h3 {
+  text-align: center;
+  color: #0e7eaf;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table td {
+  padding: 10px;
+  vertical-align: middle;
+}
+
+/*
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+}
+.input-wrapper i {
+  position: absolute;
+  left: 10px;
+  color: #7c9295;
+}
+*/
+
+.text-danger {
+  position: absolute;
+  bottom: -1.25rem; /* Position the error below the input */
+  left: 30px; /* Align with the input text (same as icon padding) */
+  color: #dc3545;
+  font-size: 0.75rem;
+  width: calc(100% - 30px); /* Account for icon space */
+}
+
+.text-danger .error {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Adjust input-wrapper to handle errors without breaking layout */
+.input-wrapper {
+  position: relative;
+  margin-bottom: 1.5rem; /* Space for error message */
+  width: 100%;
+}
+
+/* Ensure select elements with errors maintain alignment */
+.input-wrapper select + .text-danger {
+  left: 10px; /* Adjust for select elements if needed */
+}
+
+.input-wrapper i {
+  position: absolute;
+  left: 10px;
+  color: #7c9295;
+  top: 50%; /* Centre verticalement */
+  transform: translateY(-50%); /* Ajustement précis */
+  line-height: 1; /* Évite les problèmes d'alignement */
+}
+
+/* Pour les selects qui peuvent avoir un alignement différent */
+.input-wrapper select + i {
+  top: calc(50% + 2px); /* Ajustement supplémentaire pour les selects */
+}
+////////////
+
+input[type="file"] {
+  padding: 5px;
+}
+select {
+  width: 100%; /* Prendre toute la largeur disponible du formulaire */
+  padding: 10px 10px 10px 30px; /* Ajouter de l'espace pour l'icône à gauche si nécessaire */
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ddd; /* Bordure inférieure uniquement */
+  background-color: transparent; /* Supprimer le fond par défaut du select */
+  appearance: none; /* Supprimer les styles par défaut du select dans certains navigateurs */
+  box-sizing: border-box;
+  transition: border 0.3s ease;
+}
+
+select:focus {
+  border-bottom: 2px solid #0961f5; /* Changer la couleur de la bordure inférieure lorsqu'il est en focus */
+  outline: none;
+}
+
+/* Optionnel : personnaliser le bouton dropdown de select */
+select::-ms-expand {
+  display: none; /* Cache l'icône du dropdown sur Internet Explorer */
+}
+
+
+input[type="file"] {
+  width: 100%; /* Prendre toute la largeur du formulaire */
+  padding: 10px 10px 10px 30px; /* Ajouter de l'espace pour l'icône (si nécessaire) */
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ddd; /* Bordure inférieure uniquement */
+  background-color: transparent; /* Supprimer le fond */
+  box-sizing: border-box;
+  transition: border 0.3s ease;
+}
+
+input[type="file"]:focus {
+  border-bottom: 2px solid #0961f5; /* Changer la couleur de la bordure inférieure lorsqu'il est en focus */
+  outline: none;
+}
+
+/* Personnalisation du texte du bouton et du fond (optionnel) */
+input[type="file"]::-webkit-file-upload-button {
+  background: transparent;
+  border: none;
+  color: #0961f5;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type="file"]:hover::-webkit-file-upload-button {
+  color: #28a745; /* Changez la couleur au survol si désiré */
+}
+
+input[type="file"]:focus::-webkit-file-upload-button {
+  color: #0961f5; /* Couleur au focus */
+}
+
+
+input, select {
+  width: 100%;
+  padding: 10px 10px 10px 30px; /* Ajouter de l'espace pour l'icône */
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  border-radius: 0;
+  box-sizing: border-box;
+  transition: border 0.3s ease;
+}
+.placeholder-option {
+  color: #888;
+}
+
+input:focus, select:focus {
+  border-bottom: 2px solid #0961f5;
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin: 5px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:nth-child(1) {
+  background-color: #e0e0e0;
+}
+
+button:nth-child(2) {
+  background-color: #0961f5;
+  color: white;
+}
+
+button:nth-child(3) {
+  background-color: #28a745;
+  color: white;
+}
+
+.error-messages {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.error-messages ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.error-messages li {
+  margin-bottom: 5px;
+}
+
+/* Responsive design pour les petits écrans */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+//.text-danger {
+//  color: #dc3545;
+//  font-size: 0.75rem;
+//  margin-top: 0.25rem;
+//  display: block;
+//  white-space: normal !important;
+//  word-wrap: break-word;
+//  width: 100%;
+//}

@@ -1,0 +1,11 @@
+<div class="dialog-container">
+  <div class="icon">❌</div>
+  <h2 class="title">{{ data.title }}</h2>
+  <pre class="error-message">{{ data.message }}</pre>
+  <button mat-raised-button
+          color="warn"
+          class="close-button"
+          (click)="close()">
+    OK
+  </button>
+</div>

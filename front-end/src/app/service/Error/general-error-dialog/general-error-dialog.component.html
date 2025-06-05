@@ -1,0 +1,11 @@
+<div class="dialog-container">
+  <div class="icon"> ⚠️</div> <!-- Icone de succès -->
+  <h2 class="title">{{ data.title }}</h2>
+  <pre class="success-message">{{ data.message }}</pre> <!-- Utilisation de success-message au lieu de error-message -->
+  <button mat-raised-button
+          color="primary"
+          class="close-button"
+          (click)="close()">
+    OK
+  </button>
+</div>

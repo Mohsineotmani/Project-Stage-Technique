@@ -1,0 +1,48 @@
+@use '@angular/material' as mat;
+
+
+//ajouter pour centrer l element
+::ng-deep .top-position-dialog {
+  position: absolute !important;
+  top: 20px !important;
+
+}
+
+
+//
+.dialog-container {
+  text-align: center;
+  padding: 24px;
+  max-width: 500px;
+
+  .icon {
+    font-size: 38px;
+    color: mat.get-color-from-palette(mat.$red-palette, 600); // Texte normal erreur
+    margin-bottom: 16px;
+  }
+
+  .title {
+    margin: 0 0 16px 0;
+    color: mat.get-color-from-palette(mat.$red-palette, 800); // Titre erreur
+    font-weight: 500;
+  }
+
+  .success-message { /* Classe pour le message de succès */
+    text-align: left;
+    background-color: rgba(255, 0, 0, 0.1); // Fond erreur
+    padding: 12px;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 300px;
+    overflow-y: auto;
+    font-family: monospace;
+    color: mat.get-color-from-palette(mat.$grey-palette, 800);
+    margin-bottom: 24px;
+  }
+
+  .close-button {
+    margin-top: 8px;
+    min-width: 100px;
+  }
+}

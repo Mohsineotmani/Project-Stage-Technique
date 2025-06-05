@@ -1,0 +1,47 @@
+<div class="dashboard">
+    <div class="stat-card">
+      <div class="icon-and-title">
+        <i class="fas fa-users"></i>
+        <h3>Total des Préinscrits</h3>
+      </div>
+      <p class="stat-value">{{ totalCandidats }}</p>
+      <hr />
+      <p class="stat-detail">
+        <i class="fas fa-clock"></i> Depuis le début
+      </p>
+    </div>
+    
+    <div class="stat-card">
+      <div class="icon-and-title">
+        <i class="fas fa-graduation-cap"></i>
+        <h3>Filière la plus demandée</h3>
+      </div>
+      <p class="stat-value">{{ mostRequestedFiliere }}</p>
+      <hr />
+      <div class="stat-percentage">
+         {{ mostRequestedPercentage }} <i class="fas fa-percentage"></i>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="icon-and-title">
+        <i class="fas fa-chart-line"></i>
+        <h3>Note Moyenne des préinscrits</h3>
+      </div>
+      <hr />
+      <p class="stat-value">{{ averageScores.toFixed(2) }}</p> 
+
+    </div>
+
+  </div>
+
+  <div class="dashboard">
+    <div>
+      <canvas #pieChart ></canvas>
+    </div>
+    <div >
+      <canvas #columnChart></canvas>
+    </div>
+  </div>
+  
+  

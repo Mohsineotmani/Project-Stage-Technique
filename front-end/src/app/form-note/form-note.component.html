@@ -1,0 +1,114 @@
+<!--
+<div class="form-container">
+  <h2>{{ isEditing ? 'Modifier une note' : 'Ajouter une note' }}</h2>
+  <form (ngSubmit)="submitForm()">
+    <div class="form-group">
+      <label for="nom">Nom Complet:</label>
+      <input id="nom" type="text" [(ngModel)]="note.nom" name="nom" required />
+    </div>
+
+    <div class="form-group">
+      <label for="cin">CIN:</label>
+      <input id="cin" type="text" [(ngModel)]="note.cin" name="cin" required />
+    </div>
+
+    <div class="form-group">
+      <label for="concours">Concours:</label>
+      <input id="concours" type="text" [(ngModel)]="note.concours" name="concours" required />
+    </div>
+
+    <div class="form-group">
+      <label for="note">Note:</label>
+      <input id="note" type="number" step="0.01" [(ngModel)]="note.note" name="note" required />
+    </div>
+
+    <div class="form-group">
+      <label for="filiere">Filière:</label>
+      <select id="filiere" [(ngModel)]="note.filiere" name="filiere" required>
+        <option value="Génie Informatique">Génie Informatique</option>
+        <option value="Gestion & Administration">Gestion & Administration</option>
+        <option value="Comptabilité & Finance">Comptabilité & Finance</option>
+        <option value="Génie RST">Génie RST</option>
+        <option value="Marketing & Vente">Marketing & Vente</option>
+        <option value="Réseaux & Télécommunications">Réseaux & Télécommunications</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input id="email" type="email" [(ngModel)]="note.email" name="email" required />
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn primary">{{ isEditing ? 'Modifier' : 'Ajouter' }}</button>
+      <button type="button" class="btn secondary" (click)="cancel()">Annuler</button>
+    </div>
+  </form>
+</div>
+-->
+
+<div class="form-container">
+  <h2>{{ isEditing ? 'Modifier une note' : 'Ajouter une note' }}</h2>
+  <form [formGroup]="noteForm" (ngSubmit)="submitForm()">
+    <!-- Sélection du candidat -->
+    <div class="form-group">
+      <label for="candidat">Candidat:</label>
+      <select id="candidat" formControlName="candidatId" (change)="onCandidatSelect($event)" required>
+        <option value="">Sélectionner un candidat</option>
+        <option *ngFor="let candidat of candidats" [value]="candidat.idCandidat"> <!-- Modifié 'id' en 'idCandidat' -->
+          {{ candidat.prenom }} {{ candidat.nom }} ({{ candidat.cin }})
+
+        </option>
+      </select>
+    </div>
+    <!-- Champs pré-remplis automatiquement -->
+    <div class="form-group">
+      <label for="nom">Nom Complet:</label>
+      <input id="nom" type="text" formControlName="nom" readonly
+             [class.empty]="!noteForm.get('nom')?.value" />
+    </div>
+
+    <div class="form-group">
+      <label for="cin">CIN:</label>
+      <input id="cin" type="text" formControlName="cin" readonly
+             [class.empty]="!noteForm.get('cin')?.value" />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email" readonly
+             [class.empty]="!noteForm.get('email')?.value" />
+    </div>
+
+    <!-- Autres champs -->
+    <div class="form-group">
+      <label for="concours">Concours:</label>
+      <input id="concours" type="text" formControlName="concours" required />
+    </div>
+
+    <div class="form-group" *ngIf="isEditing">
+      <label for="note">Note:</label>
+      <input  id="note" type="number" step="0.01" formControlName="note" required />
+      <!-- Validation de la note -->
+      <div class="text-danger" *ngIf="noteForm.controls['note'].touched && noteForm.controls['note'].errors">
+        <span class="error" *ngIf="noteForm.controls['note'].errors?.['required']">📝 La note est requise</span>
+        <span class="error" *ngIf="noteForm.controls['note'].errors?.['min']">⬇️ La note doit être ≥ 0</span>
+        <span class="error" *ngIf="noteForm.controls['note'].errors?.['max']">⬆️ La note doit être ≤ 20</span>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="filiere">Filière:</label>
+      <input id="filiere" type="text" formControlName="filiere" readonly
+             [class.empty]="!noteForm.get('filiere')?.value">
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn primary" [disabled]="noteForm.invalid">
+        {{ isEditing ? 'Modifier' : 'Ajouter' }}
+      </button>
+      <button type="button" class="btn secondary" (click)="cancel()">Annuler</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,183 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 110vh;
+  width: 100%;
+  background-image: url(../../assets/esma/front.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .login-container {
+    max-width: 400px;
+    width: 100%;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+
+    .alert-danger {
+      background-color: #f8d7da;
+      color: #842029;
+      border: 1px solid #f5c2c7;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+
+      label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 5px;
+        display: block;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+
+        &::placeholder {
+          color: #aaa;
+        }
+
+        &:focus {
+          border-color: #007bff;
+          outline: none;
+        }
+      }
+
+      .forgot-password {
+        display: block;
+        font-size: 12px;
+        text-align: right;
+        color: #007bff;
+        text-decoration: none;
+        margin-top: 5px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+
+      .remember-me {
+        font-size: 14px;
+        color: #333;
+
+        input {
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #333;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #444;
+      }
+    }
+
+    .no-account {
+      font-size: 14px;
+      text-align: center;
+      margin-top: 15px;
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .divider {
+      font-size: 14px;
+      color: #777;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .social-login {
+      display: flex;
+      justify-content: space-between;
+
+      .btn-social {
+        flex: 1;
+        padding: 10px;
+        font-size: 14px;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 10px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &.btn-facebook {
+          background-color: #3b5998;
+
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+
+        &.btn-google {
+          background-color: #db4437;
+
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+
+    .footer {
+      font-size: 12px;
+      color: #aaa;
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+}

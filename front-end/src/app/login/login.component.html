@@ -1,0 +1,71 @@
+<div class="login-page">
+  <div class="login-container">
+    <h1>Connexion</h1>
+    <p class="description">Renseigner votre adresse email et mot de passe</p>
+
+    <div *ngIf="errorMsg" class="alert alert-danger" role="alert">
+      {{ errorMsg }}
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          formControlName="email"
+          type="text"
+          class="form-control"
+          id="email"
+          placeholder="Entrer votre adresse email"
+        />
+        <!-- Messages d'erreur -->
+        <div class="error-message"
+             *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty)">
+          <div *ngIf="loginForm.get('email')?.getError('required')">Ce champ est requis.</div>
+          <div *ngIf="loginForm.get('email')?.getError('email')">Veuillez entrer une adresse email valide.</div>
+        </div>
+      </div>
+
+      <div class="form-group position-relative">
+        <label for="password">Mot de passe</label>
+        <input
+          formControlName="password"
+          [type]="showPassword ? 'text' : 'password'"
+          class="form-control"
+          id="password"
+          placeholder="Entrer votre mot de passe"
+        />
+        <!-- Messages d'erreur -->
+        <div class="error-message"
+             *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)">
+          <div *ngIf="loginForm.get('password')?.getError('required')">Ce champ est requis.</div>
+          <div *ngIf="loginForm.get('password')?.getError('minlength')">Le mot de passe doit contenir au moins 8
+            caractères.
+          </div>
+          <div *ngIf="loginForm.get('password')?.getError('maxlength')">Le mot de passe doit contenir au maximum 12
+            caractères.
+          </div>
+        </div>
+        <a class="forgot-password" routerLink="/forgot">Mot de passe oublié ?</a>
+      </div>
+
+      <button type="submit" class="btn-login">Connexion</button>
+    </form>
+
+
+    <p class="no-account">
+      Vous n’avez pas de compte ? <a routerLink="/register">Créer un compte</a>
+    </p>
+    <!--
+        <div class="divider">— ou —</div>
+
+        <div class="social-login">
+
+          <button class="btn-social btn-facebook">Facebook</button>
+          <button class="btn-social btn-google">Google</button>
+        </div>-->
+
+    <footer class="footer">
+      © 2025 Esma  - Marrakech.
+    </footer>
+  </div>
+</div>

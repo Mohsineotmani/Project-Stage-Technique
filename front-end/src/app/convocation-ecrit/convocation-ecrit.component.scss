@@ -1,0 +1,132 @@
+html,body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fc; /* Fond clair */
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.empty-div{
+  height: 180px;
+}
+
+/* Conteneur principal */
+.container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Conteneur principal */
+.container {
+  width: 100%;
+  max-width: 600px;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Décoration du conteneur */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, #007bff, #28a745); /* Dégradé décoratif */
+  z-index: 1;
+}
+
+/* Titre */
+h1 {
+  font-size: 28px;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+/* Section d'informations */
+.info-section {
+  margin-bottom: 30px;
+}
+.info-section p {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #4b6584;
+}
+.info-section .moyenne {
+  color: #007bff;
+  font-weight: bold;
+  font-size: 20px;
+}
+.info-section .seuil {
+  color: #dc3545;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Messages conditionnels */
+.eligible {
+  font-size: 22px;
+  font-weight: bold;
+  color: #28a745; /* Vert pour message positif */
+  margin-bottom: 20px;
+}
+
+.not-eligible {
+  font-size: 20px;
+  color: #dc3545; /* Rouge pour message négatif */
+  margin-top: 20px;
+  line-height: 1.5;
+}
+
+.not-eligible a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.not-eligible a:hover {
+  text-decoration: underline;
+}
+
+/* Boutons */
+.button-section {
+  margin-top: 20px;
+}
+button {
+  font-size: 16px;
+  background-color: #007bff; /* Bleu */
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Zoom léger au survol */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: scale(0.98); /* Réduction lors du clic */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}

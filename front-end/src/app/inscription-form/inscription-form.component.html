@@ -1,0 +1,333 @@
+<div class="bar-container">
+  <div class="progress-bar-container">
+    <div class="progress-bar" [style.width.%]="(currentStep + 1) * 33.33"></div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Formulaire 1: Informations Personnelles -->
+  <form [formGroup]="personalInfoForm">
+    <div *ngIf="currentStep === 0" class="form-container">
+      <h3><strong>Informations Personnelles</strong></h3>
+      <table>
+        <tr>
+          <td>
+            <div class="input-wrapper">
+              <i class="fas fa-user"></i>
+              <input id="prenom" formControlName="prenom" placeholder="Prénom"/>
+              <div class="text-danger" *ngIf="personalInfoForm.controls['prenom'].touched && personalInfoForm.controls['prenom'].errors?.['required']">
+                <span class="error">📝 Le prénom est requis</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="input-wrapper">
+              <i class="fas fa-user"></i>
+              <input id="nom" formControlName="nom" placeholder="Nom"/>
+              <div class="text-danger" *ngIf="personalInfoForm.controls['nom'].touched && personalInfoForm.controls['nom'].errors?.['required']">
+                <span class="error">📝 Le nom est requis</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="input-wrapper">
+              <i class="fas fa-id-card"></i>
+              <input id="cin" formControlName="cin" placeholder="CIN"/>
+              <div class="text-danger" *ngIf="personalInfoForm.controls['cin'].touched && personalInfoForm.controls['cin'].errors?.['required']">
+                <span class="error">📝 Le CIN est requis</span>
+              </div>
+              <div class="text-danger" *ngIf="personalInfoForm.get('cin')?.errors?.['notUnique']">
+                <span class="error">📝 Ce CIN est déjà utilisé</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="input-wrapper">
+              <i class="fas fa-graduation-cap"></i>
+              <input id="codeEtudiant" formControlName="codeEtudiant" placeholder="Code Étudiant"/>
+              <div class="text-danger" *ngIf="personalInfoForm.controls['codeEtudiant'].touched && personalInfoForm.controls['codeEtudiant'].errors?.['required']">
+                <span class="error">📝 Le code étudiant est requis</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="input-wrapper">
+              <i class="fas fa-calendar-alt"></i>
+              <input id="dateNaissance" formControlName="dateNaissance" type="date"/>
+              <div class="text-danger" *ngIf="personalInfoForm.controls['dateNaissance'].touched && personalInfoForm.controls['dateNaissance'].errors?.['required']">
+                <span class="error">📝 La date est requise</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="input-wrapper">
+              <i class="fas fa-venus-mars"></i>
+              <select id="genre" formControlName="genre">
+                <option value="" disabled selected class="placeholder-option">Choisissez un genre</option>
+                <option value="F">Femme</option>
+                <option value="H">Homme</option>
+              </select>
+              <div class="text-danger" *ngIf="personalInfoForm.controls['genre'].touched && personalInfoForm.controls['genre'].errors?.['required']">
+                <span class="error">📝 Le genre est requis</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="input-wrapper">
+              <i class="fas fa-globe"></i>
+              <input id="pays" formControlName="pays" placeholder="Pays"/>
+              <div class="text-danger" *ngIf="personalInfoForm.controls['pays'].touched && personalInfoForm.controls['pays'].errors?.['required']">
+                <span class="error">📝 Le pays est requis</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="input-wrapper">
+              <i class="fas fa-city"></i>
+              <input id="ville" formControlName="ville" placeholder="Ville"/>
+              <div class="text-danger" *ngIf="personalInfoForm.controls['ville'].touched && personalInfoForm.controls['ville'].errors?.['required']">
+                <span class="error">📝 La ville est requise</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="input-wrapper">
+              <i class="fas fa-phone-alt"></i>
+              <input id="tel" formControlName="tel" placeholder="Téléphone"/>
+              <div class="text-danger" *ngIf="personalInfoForm.controls['tel'].touched && personalInfoForm.controls['tel'].errors?.['required']">
+                <span class="error">📝 Le téléphone est requis</span>
+              </div>
+              <div class="text-danger" *ngIf="personalInfoForm.controls['tel'].errors?.['pattern']">
+                <span class="error">📝 Format de téléphone invalide</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="input-wrapper">
+              <i class="fas fa-envelope"></i>
+              <input id="email" formControlName="email" type="email" placeholder="Email"/>
+              <div class="text-danger" *ngIf="personalInfoForm.controls['email'].touched && personalInfoForm.controls['email'].errors?.['required']">
+                <span class="error">📝 L'email est requis</span>
+              </div>
+              <div class="text-danger" *ngIf="personalInfoForm.controls['email'].errors?.['email']">
+                <span class="error">📝 Format d'email invalide</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div class="input-wrapper">
+              <i class="fas fa-book"></i>
+              <select id="filiereChoisi" formControlName="filiereChoisi">
+                <option value="" disabled selected class="placeholder-option">Choisissez une filière</option>
+                <option value="Génie Informatique">Génie Informatique</option>
+                <option value="Gestion & Administration">Gestion & Administration</option>
+                <option value="Comptabilité & Finance">Comptabilité & Finance</option>
+                <option value="Génie RST">Génie RST</option>
+                <option value="Marketing & Vente">Marketing & Vente</option>
+                <option value="Réseaux & Télécommunications">Réseaux & Télécommunications</option>
+              </select>
+              <div class="text-danger" *ngIf="personalInfoForm.controls['filiereChoisi'].touched && personalInfoForm.controls['filiereChoisi'].errors?.['required']">
+                <span class="error">📝 La filière est requise</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+
+  <!-- Formulaire 2: Informations Baccalauréat -->
+  <form [formGroup]="bacInfoForm">
+    <div *ngIf="currentStep === 1">
+      <h3><strong>Informations sur le Baccalauréat</strong></h3>
+      <table>
+        <tr>
+          <td><label for="copieBac">Copie Bac</label></td>
+          <td colspan="2">
+            <div class="input-wrapper">
+              <i class="fas fa-file-upload"></i>
+              <input id="copieBac" formControlName="copieBac" type="file" (change)="onFileChange($event, 'copieBac')"/>
+              <div class="text-danger" *ngIf="bacInfoForm.controls['copieBac'].touched && bacInfoForm.controls['copieBac'].errors?.['required']">
+                <span class="error">📝 La copie du bac est requise</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="serieBac">Série Bac</label></td>
+          <td colspan="2">
+            <div class="input-wrapper">
+              <i class="fas fa-graduation-cap"></i>
+              <select id="serieBac" formControlName="serieBac">
+                <option value="" disabled selected class="placeholder-option">Choisissez une série</option>
+                <option value="SMA">Sciences Mathématiques A (SMA)</option>
+                <option value="SMB">Sciences Mathématiques B (SMB)</option>
+                <option value="PC">Sciences Physiques et Chimiques (PC)</option>
+                <option value="SVT">Sciences de la Vie et de la Terre (SVT)</option>
+                <option value="STE">Sciences et Technologies Électriques (STE)</option>
+                <option value="STM">Sciences et Technologies Mécaniques (STM)</option>
+              </select>
+              <div class="text-danger" *ngIf="bacInfoForm.controls['serieBac'].touched && bacInfoForm.controls['serieBac'].errors?.['required']">
+                <span class="error">📝 La série du bac est requise</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="mentionBac">Mention Bac</label></td>
+          <td colspan="2">
+            <div class="input-wrapper">
+              <i class="fas fa-trophy"></i>
+              <select id="mentionBac" formControlName="mentionBac">
+                <option value="" disabled selected class="placeholder-option">Choisissez une mention</option>
+                <option value="Très Bien">Très Bien</option>
+                <option value="Bien">Bien</option>
+                <option value="Assez Bien">Assez Bien</option>
+                <option value="Passable">Passable</option>
+              </select>
+              <div class="text-danger" *ngIf="bacInfoForm.controls['mentionBac'].touched && bacInfoForm.controls['mentionBac'].errors?.['required']">
+                <span class="error">📝 La mention du bac est requise</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="releveBac">Relevé Bac</label></td>
+          <td colspan="2">
+            <div class="input-wrapper">
+              <i class="fas fa-file-upload"></i>
+              <input id="releveBac" formControlName="releveBac" type="file" (change)="onFileChange($event, 'releveBac')"/>
+              <div class="text-danger" *ngIf="bacInfoForm.controls['releveBac'].touched && bacInfoForm.controls['releveBac'].errors?.['required']">
+                <span class="error">📝 Le relevé de notes du bac est requis</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+
+  <!-- Formulaire 3: Informations Diplôme -->
+  <form [formGroup]="diplomaInfoForm">
+    <div *ngIf="currentStep === 2">
+      <h3><strong>Informations sur le Diplôme</strong></h3>
+      <table>
+        <tr>
+          <td>
+            <div class="input-wrapper">
+              <i class="fas fa-certificate"></i>
+              <select id="titreDiplome" formControlName="titreDiplome">
+                <option value="" disabled selected class="placeholder-option">Titre du Diplôme</option>
+                <option value="BTS">Brevet de Technicien Supérieur (BTS)</option>
+                <option value="DUT">Diplôme Universitaire de Technologie (DUT)</option>
+                <option value="DEUG">Diplôme d'Études Universitaires Générales (DEUG)</option>
+                <option value="TS">Diplôme de Technicien Spécialisé</option>
+              </select>
+              <div class="text-danger" *ngIf="diplomaInfoForm.controls['titreDiplome'].touched && diplomaInfoForm.controls['titreDiplome'].errors?.['required']">
+                <span class="error">📝 Le titre du diplôme est requis</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="input-wrapper">
+              <i class="fas fa-file-upload"></i>
+              <input id="copieDiplome" formControlName="copieDiplome" type="file" (change)="onFileChange($event, 'copieDiplome')"/>
+              <div class="text-danger" *ngIf="diplomaInfoForm.controls['copieDiplome'].touched && diplomaInfoForm.controls['copieDiplome'].errors?.['required']">
+                <span class="error">📝 La copie du diplôme est requise</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="input-wrapper">
+              <i class="fas fa-edit"></i>
+              <input id="notePremiereAnnee" formControlName="notePremiereAnnee" placeholder="Note 1ère Année"/>
+              <div class="text-danger" *ngIf="diplomaInfoForm.controls['notePremiereAnnee'].touched && diplomaInfoForm.controls['notePremiereAnnee'].errors?.['required']">
+                <span class="error">📝 La note de 1ère année est requise</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="input-wrapper">
+              <i class="fas fa-file-upload"></i>
+              <input id="releveDiplomeAnnee1" formControlName="releveDiplomeAnnee1" type="file" (change)="onFileChange($event, 'releveDiplomeAnnee1')"/>
+              <div class="text-danger" *ngIf="diplomaInfoForm.controls['releveDiplomeAnnee1'].touched && diplomaInfoForm.controls['releveDiplomeAnnee1'].errors?.['required']">
+                <span class="error">📝 Le relevé de notes de 1ère année est requis</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="input-wrapper">
+              <i class="fas fa-edit"></i>
+              <input id="noteDeuxiemeAnnee" formControlName="noteDeuxiemeAnnee" placeholder="Note 2ème Année"/>
+              <div class="text-danger" *ngIf="diplomaInfoForm.controls['noteDeuxiemeAnnee'].touched && diplomaInfoForm.controls['noteDeuxiemeAnnee'].errors?.['required']">
+                <span class="error">📝 La note de 2ème année est requise</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="input-wrapper">
+              <i class="fas fa-file-upload"></i>
+              <input id="releveDiplomeAnnee2" formControlName="releveDiplomeAnnee2" type="file" (change)="onFileChange($event, 'releveDiplomeAnnee2')"/>
+              <div class="text-danger" *ngIf="diplomaInfoForm.controls['releveDiplomeAnnee2'].touched && diplomaInfoForm.controls['releveDiplomeAnnee2'].errors?.['required']">
+                <span class="error">📝 Le relevé de notes de 2ème année est requis</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div class="input-wrapper">
+              <i class="fas fa-school"></i>
+              <select id="etablissement" formControlName="etablissement">
+                <option value="" disabled selected class="placeholder-option">Votre Ancien Etablissement</option>
+                <option value="EST Casablanca">EST Casablanca</option>
+                <option value="EST Sidi Bennour">EST Sidi Bennour</option>
+                <option value="EST Fès">EST Fès</option>
+                <option value="EST Marrakech">EST Marrakech</option>
+                <option value="EST Rabat">EST Rabat</option>
+                <option value="EST Tanger">EST Tanger</option>
+                <option value="EST Oujda">EST Oujda</option>
+                <option value="EST Agadir">EST Agadir</option>
+                <option value="BTS Informatique - ISTA Rabat">BTS Informatique - ISTA Rabat</option>
+                <option value="BTS Comptabilité & Finance - ISTA Casablanca">BTS Comptabilité & Finance - ISTA Casablanca</option>
+                <option value="BTS Électronique - ISTA Fès">BTS Électronique - ISTA Fès</option>
+                <option value="BTS Marketing et Gestion - ISTA Rabat">BTS Marketing et Gestion - ISTA Rabat</option>
+                <option value="ISTA Casablanca">ISTA Casablanca</option>
+                <option value="ISTA Fès">ISTA Fès</option>
+              </select>
+              <div class="text-danger" *ngIf="diplomaInfoForm.controls['etablissement'].touched && diplomaInfoForm.controls['etablissement'].errors?.['required']">
+                <span class="error">📝 L'établissement est requis</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+
+  <div class="form-navigation">
+    <button (click)="previousStep()">Précédent</button>
+    <button *ngIf="currentStep < 2" (click)="nextStep()">Suivant</button>
+    <button *ngIf="currentStep === 2" (click)="onSubmit($event)">Soumettre</button>
+  </div>
+
+  <div *ngIf="errorMessages.length > 0" class="error-messages">
+    <ul>
+      <li *ngFor="let message of errorMessages">{{ message }}</li>
+    </ul>
+  </div>
+</div>

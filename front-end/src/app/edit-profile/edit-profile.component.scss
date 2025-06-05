@@ -1,0 +1,150 @@
+.dashboard-container {
+    background-color: #f5f7fb;
+    font-family: 'Poppins', sans-serif;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .profile-edit-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-edit-form h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  h3 {
+    font-size: 1.4rem;
+    color: #2980b9;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 5px;
+  }
+  
+  .form-section {
+    margin-bottom: 30px;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  form label {
+    font-size: 1rem;
+    color: #34495e;
+  }
+  
+  form input {
+    padding: 14px;
+    font-size: 1rem;
+    border: 1px solid #dcdfe1;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  form input:focus {
+    border-color: #2980b9;
+    background-color: #ffffff;
+    outline: none;
+  }
+  
+  form button.save-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #2980b9;
+    color: #ffffff;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button.save-btn:hover {
+    background-color: #1a6589;
+  }
+  
+  form hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 30px 0;
+  }
+  
+  form input::placeholder {
+    color: #aaa;
+  }
+
+  /* Style général pour tous les champs de formulaire */
+form select {
+    padding: 14px;
+    font-size: 1rem;
+    border: 1px solid #dcdfe1;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  /* Style lorsque l'input/select est en focus */
+  form select:focus {
+    border-color: #2980b9;
+    background-color: #ffffff;
+    outline: none;
+  }
+  
+  /* Style pour le placeholder (même que les inputs) */
+  form select::placeholder {
+    color: #aaa;
+  }
+  
+  /* Styliser les options à l'intérieur de la liste déroulante (facultatif) */
+  form select option {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #34495e;
+  }
+  form button.save-btn {
+    width: auto; /* Changer de 100% à auto pour une largeur dynamique */
+    padding: 10px 20px; /* Réduire l'espacement interne */
+    background-color: #2980b9;
+    color: #ffffff;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 auto; /* Centrer le bouton horizontalement */
+    display: block; /* Assure que le bouton est un bloc pour pouvoir le centrer */
+  }
+  
+  form button.save-btn:hover {
+    background-color: #1a6589;
+  }

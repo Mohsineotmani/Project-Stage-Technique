@@ -1,0 +1,167 @@
+// Définition des variables si elles ne sont pas encore définies
+$primary-color: #007bff;
+$secondary-color: #555;
+$background-color: #fff;
+$border-color: #ddd;
+$text-color: #333;
+$danger-color: #f44336;
+$hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+$normal-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+$font-family: 'Arial, sans-serif';
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: $font-family;
+
+  h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: $text-color;
+    margin-bottom: 30px;
+  }
+
+  .btn-add {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background-color: $primary-color;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+
+    i {
+      font-size: 1.2rem;
+    }
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+
+    .card {
+      background-color: $background-color;
+      border: 1px solid $border-color;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: $normal-shadow;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: $hover-shadow;
+      }
+
+      .card-header {
+        display: flex;
+        padding: 15px;
+
+        .card-image {
+          width: 120px;
+          height: 120px;
+          overflow: hidden;
+          margin-right: 15px;
+
+          img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+          }
+        }
+
+        .card-title-content {
+          flex: 1;
+          h4 {
+            font-size: 1.2em;
+            margin: 0;
+            color: $primary-color;
+          }
+
+          ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+
+            li {
+              font-size: 0.9em;
+              color: $secondary-color;
+
+              strong {
+                color: $text-color;
+              }
+            }
+          }
+        }
+      }
+
+      .card-footer {
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+
+        button {
+          padding: 8px 15px;
+          font-size: 0.9em;
+          border-radius: 5px;
+          border: none;
+          color: #fff;
+          cursor: pointer;
+
+          &.edit {
+            background-color: darken($primary-color, 10%);
+            &:hover {
+              background-color: darken($primary-color, 20%);
+            }
+          }
+
+          &.delete {
+            background-color: $danger-color;
+            &:hover {
+              background-color: darken($danger-color, 10%);
+            }
+          }
+
+          &.publish {
+            background-color: $secondary-color;
+            &:hover {
+              background-color: lighten($secondary-color, 10%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .card-image {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}

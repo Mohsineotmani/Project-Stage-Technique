@@ -1,0 +1,141 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+  }
+  
+  .filter-section {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+  
+  .filter-select {
+    display: flex;
+    align-items: center;
+  }
+  
+  label {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: border 0.3s ease;
+  }
+  
+  select:hover {
+    border-color: #0961f5;
+  }
+  
+  select:focus {
+    border-color: #074db3;
+    outline: none;
+    box-shadow: 0 0 5px rgba(9, 97, 245, 0.5);
+  }
+  
+  .results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .results-table thead tr {
+    background: #0961f5;
+    color: white;
+  }
+  
+  .results-table th,
+  .results-table td {
+    padding: 10px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .results-table tbody tr:hover {
+    background: #f1f1f1;
+  }
+  
+  /* Edit Fields: Status Orale and Remarque */
+  .editable input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+  }
+  
+  .editable input:focus {
+    border-color: #074db3;
+    outline: none;
+  }
+  
+  .editable input::placeholder {
+    color: #888;
+    font-style: italic;
+  }
+  
+  .editable {
+    max-width: 200px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+  }
+  
+  .btn {
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    min-width: 100px;
+  }
+  
+  .btn.edit {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .btn.save {
+    background-color: #0961f5;
+    color: white;
+  }
+  
+  .btn.cancel {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  
+  .btn.save:hover {
+    background-color: #074db3;
+  }
+  
+  .btn.edit:hover {
+    background-color: #388e3c;
+  }
+  
+  .btn.cancel:hover {
+    background-color: #d32f2f;
+  }

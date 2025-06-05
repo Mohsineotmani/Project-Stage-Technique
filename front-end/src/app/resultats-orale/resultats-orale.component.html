@@ -1,0 +1,98 @@
+
+
+
+
+<div class="container">
+  <h3>Résultats Finaux</h3>
+
+  <!-- Message d'erreur -->
+  <div *ngIf="errorMessage" class="alert alert-warning">
+    {{ errorMessage }}
+  </div>
+
+
+
+  <!-- Dropdown pour filtrer par filière -->
+  <div class="form-group">
+    <label for="filiereSelect">Filtrer par Filière:</label>
+    <select
+      id="filiereSelect"
+      class="form-control"
+      [(ngModel)]="selectedFiliere"
+      (change)="filterResults()"
+    >
+      <option value="">Toutes les Filières</option>
+      <option *ngFor="let filiere of filieres" [value]="filiere">
+        {{ filiere }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Tableau des résultats -->
+  <table class="table" *ngIf="filteredResults.length !== 0">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nom Complet</th>
+      <th>CIN</th>
+      <th>Filière</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let result of filteredResults">
+      <td>{{ result.id }}</td>
+      <td>{{ result.nom }}</td>
+      <td>{{ result.cin || 'Non spécifié' }}</td>
+      <td>{{ result.filiere }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Message si aucun résultat n'est trouvé -->
+  <div *ngIf="filteredResults.length === 0" class="alert alert-warning">
+    Aucun résultat publié pour la filière sélectionnée
+  </div>
+
+  <!-- Bouton pour générer le PDF -->
+  <div class="text-center mt-4" *ngIf="filteredResults.length !== 0">
+    <button class="btn btn-primary" (click)="generatePdf()">
+      <i class="fas fa-file-pdf"></i> Résultats Finaux
+    </button>
+  </div>
+</div>
+
+
+<!--
+
+<div class="container">
+  <div>
+    <div>
+      <button class="btn btn-primary" (click)="fetchMyResults()">
+        Ma note
+      </button>
+    </div>
+    <table class="table" *ngIf="myNote.length !== 0">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom Complet</th>
+        <th>CIN</th>
+        <th>Filière</th>
+        <th>Note</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{ myNote.id }}</td>
+        <td>{{ myNote.nom }}</td>
+        <td>{{ myNote.cin || 'Non spécifié' }}</td>
+        <td>{{ myNote.filiere }}</td>
+        <td>{{ myNote.note }}</td>
+        <td>{{ myNote.remarque }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+-->

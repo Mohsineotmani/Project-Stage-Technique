@@ -1,0 +1,57 @@
+<div class="container">
+  <h3>Résultats du Concours final </h3>
+
+  <!-- Dropdown pour filtrer par filière -->
+  <div class="form-group"  >
+    <label for="filiereSelect">Filtrer par Filière:</label>
+    <select
+      id="filiereSelect"
+      class="form-control"
+      [(ngModel)]="selectedFiliere"
+      (change)="filterResults()"
+    >
+      <option value="">Toutes les Filières</option>
+      <option value="Génie Informatique">Génie Informatique</option>
+      <option value="Gestion & Administration">Gestion & Administration</option>
+      <option value="Comptabilité & Finance">Comptabilité & Finance</option>
+      <option value="Génie RST">Génie RST</option>
+      <option value="Marketing & Vente">Marketing & Vente</option>
+      <option value="Réseaux & Télécommunications">Réseaux & Télécommunications</option>
+    </select>
+  </div>
+
+  <!-- Tableau des résultats -->
+  <table class="table" *ngIf="filteredResults.length !== 0" >
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom Complet</th>
+        <th>CIN</th>
+        <th>Filière</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Parcourir les résultats filtrés -->
+      <tr *ngFor="let result of filteredResults">
+        <td>{{ result.id }}</td>
+        <td>{{ result.nom }}</td>
+        <td>{{ result.cin || 'Non spécifié' }}</td>
+        <td>{{ result.filiere }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Message si aucun résultat n'est trouvé -->
+  <div *ngIf="filteredResults.length === 0" class="alert alert-warning">
+    Aucun résultat publié pour la filière sélectionnée
+  </div>
+
+  <div class="text-center mt-4" *ngIf="filteredResults.length !== 0" >
+    <button class="btn" (click)="generatePdf()">
+      <i class="fas fa-file-pdf"></i>
+      Résultats du Concours Écrit
+    </button>
+
+  </div>
+
+</div>

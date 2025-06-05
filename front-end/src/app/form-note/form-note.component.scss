@@ -1,0 +1,118 @@
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+
+  h2 {
+    text-align: center;
+    color: #0961f5;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    position: relative;
+    display: flex;
+    align-items: flex-start; // Alignement en haut pour gérer les erreurs
+    margin-bottom: 25px; // Espace supplémentaire pour les erreurs
+
+    label {
+      font-weight: bold;
+      margin-right: 15px;
+      color: #333;
+      width: 30%;
+      flex-shrink: 0; // Empêche le rétrécissement du label
+      padding-top: 10px; // Alignement vertical avec l'input
+    }
+
+    .input-wrapper {
+      width: 70%;
+      position: relative;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+      transition: border 0.3s ease;
+
+      &:focus {
+        border-color: #0961f5;
+        box-shadow: 0 0 5px rgba(9, 97, 245, 0.5);
+        outline: none;
+      }
+
+      &.is-invalid {
+        border-color: #dc3545;
+        padding-right: 30px; // Espace pour l'icône d'erreur
+      }
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+  }
+
+  .error-message {
+    position:  relative;
+    left: calc(30% + 15px); // Alignement avec l'input
+    bottom: -18px; // Position sous l'input
+    color: #ec3042;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    &::before {
+      content: "⚠";
+      margin-right: 5px;
+    }
+  }
+  .input-group{
+    width: 100%;
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &.primary {
+        background-color: #0961f5;
+        color: white;
+
+        &:hover {
+          background-color: #074db3;
+          transform: translateY(-2px);
+        }
+      }
+
+      &.secondary {
+        background-color: #f44336;
+        color: white;
+
+        &:hover {
+          background-color: #d32f2f;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+<div class="notes-container">
+  <h2>Gestion des Notes final</h2>
+
+
+  <div class="empty-space">
+
+  </div>
+
+  <!-- Barre de filtre -->
+  <div class="filter-bar">
+    <label for="filiereFilter">Filtrer par Filière :</label>
+    <select id="filiereFilter" [(ngModel)]="selectedFiliere" (change)="filterNotes()">
+      <option value="">Toutes les Filières</option>
+      <option value="Génie Informatique">Génie Informatique</option>
+      <option value="Gestion & Administration">Gestion & Administration</option>
+      <option value="Comptabilité & Finance">Comptabilité & Finance</option>
+      <option value="Génie RST">Génie RST</option>
+      <option value="Marketing & Vente">Marketing & Vente</option>
+      <option value="Réseaux & Télécommunications">Réseaux & Télécommunications</option>
+    </select>
+
+    <!-- Filtre par Seuil Oral -->
+
+    <label for="seuilOralFilter">Seuil :</label>
+  <input
+    type="number"
+    id="seuilOralFilter"
+    [(ngModel)]="seuilOral"
+    (change)="updateSeuil()"
+    placeholder="Entrez le seuil"
+  />
+  </div>
+   <!-- Notifications -->
+   <div *ngIf="emailSuccessMessage" class="alert success">
+    {{ emailSuccessMessage }}
+  </div>
+  <div *ngIf="emailErrorMessage" class="alert error">
+    {{ emailErrorMessage }}
+  </div>
+  <div *ngIf="publishSuccessMessage" class="alert success">
+    {{ publishSuccessMessage }}
+  </div>
+  <div *ngIf="publishErrorMessage" class="alert error">
+    {{ publishErrorMessage }}
+  </div>
+
+  <div style="margin-top: 3px">
+    <p></p>
+  </div>
+
+
+  <!-- Actions -->
+<div class="actions">
+  <!--<button class="btn primary" (click)="addNote()">
+    <i class="fas fa-plus-circle"></i> Ajouter une Note
+  </button>-->
+  <button class="btn primary" (click)="downloadCsv()">
+    <i class="fas fa-download"></i> Télécharger CSV
+  </button>
+  <button class="btn success" (click)="sendEmailsToAdmitted()" [disabled]="isSendingEmails">
+    <i class="fas fa-paper-plane"></i> {{ isSendingEmails ? 'Envoi en cours...' : 'Envoyer emails aux admis' }}
+  </button>
+  <button class="btn publish" (click)="publishResults()">
+    <i class="fas fa-rocket"></i> Publier les résultats finaux
+  </button>
+<!--  <button class="btn publish" (click)="publishOralResults()">
+    <i class="fas fa-bullhorn"></i> Publier les résultats finaux
+  </button>-->
+
+  <!-- Nouveau bouton pour générer le PDF -->
+  <button class="btn pdf" (click)="generatePdf()">
+    <i class="fas fa-file-pdf"></i> Résultats finaux
+  </button>
+
+<!--  &lt;!&ndash; Nouveau bouton pour générer le PDF des résultats finaux &ndash;&gt;
+  <button class="btn pdf" (click)="generateFinalResultsPdf()">
+    <i class="fas fa-file-pdf"></i> Résultats Finaux
+  </button>-->
+
+  <button class="btn cancel" (click)="cancelPublishResults()">
+    <i class="fas fa-times-circle"></i> Annuler la publication des notes
+  </button>
+<!--  <button class="btn cancel" (click)="cancelPublishFinalResults()">
+    <i class="fas fa-times-circle"></i> Annuler la publication des Résultats Finaux
+  </button>-->
+
+</div>
+<div class="actions">
+
+</div>
+
+
+  <!-- Message quand aucune note n'est trouvée -->
+  <div *ngIf="filteredNotes.length === 0" class="alert info">
+    Aucune note trouvée pour cette filière.
+  </div>
+
+  <!-- Tableau des notes -->
+  <table class="styled-table" *ngIf="filteredNotes.length > 0">
+    <thead>
+      <tr>
+        <th>Nom Complet</th>
+        <th>CIN</th>
+         <th>Note</th>
+        <th>Filière</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let note of filteredNotes" [ngClass]="{'below-threshold': note?.note < seuilOral}">
+        <td>{{ note?.nom || 'Non spécifié' }}</td>
+        <td>{{ note?.cin || 'Non spécifié' }}</td>
+         <td>{{ note?.note }}</td>
+        <td>{{ note?.filiere }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+</div>
+<div class="empty-space-footer">
+
+</div>
